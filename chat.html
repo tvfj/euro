@@ -1,74 +1,49 @@
 <!DOCTYPE html>
-<html style="font-size: 10px; font-family: Roboto, Arial, sans-serif">
+<html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="utf-8" http-equiv="encoding" />
-    <title>Social Stream - Overlay</title>
-    <link rel="icon" href="./icons/favicon.ico" />
-    <link rel="preload" href="./thirdparty/NotoColorEmoji.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
-    <style>
-        /* Estilos para el video de fondo */
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página con video de fondo y contenido superpuesto</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Para que el contenido no desborde la ventana */
+    }
 
-        /* Estilos para el contenedor del iframe */
-        #iframe-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
+    #video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Para colocar el video detrás de los demás elementos */
+    }
 
-        /* Estilos para el iframe */
-        #social-stream-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-            pointer-events: none; /* Evita que el iframe interfiera con el video */
-        }
-    </style>
+    #content-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Para que el contenido esté sobre el video */
+    }
+
+    #web-content {
+        width: 100%;
+        height: 100%;
+        border: none; /* Eliminar el borde del iframe */
+    }
+</style>
 </head>
 <body>
     <!-- Video de fondo -->
-    <video id="background-video" src="https://tvfj.github.io/eurolive/fondochat.mp4" autoplay loop muted></video>
+    <iframe id="video-background" src="https://tvfj.github.io/eurolive/fondochat.mp4" frameborder="0" allowfullscreen></iframe>
 
-    <!-- Contenedor del iframe transparente -->
-    <div id="iframe-container">
-        <!-- El iframe transparente -->
-        <iframe id="social-stream-iframe" src="https://socialstream.ninja/index.html?session=cwp7F9xPLn&aligntop&center&fade&font=Sora&googlefont=Space%20Grotesk%20Light&noavatar&rounded=10&scale=0.5" allow="autoplay"></iframe>
+    <!-- Contenido superpuesto -->
+    <div id="content-overlay">
+        <!-- Contenido web -->
+        <iframe id="web-content" src="https://socialstream.ninja/index.html?session=cwp7F9xPLn"></iframe>
     </div>
-
-    <script>
-        // Función para mostrar u ocultar el iframe basado en el estado del video
-        function toggleIframeVisibility(event) {
-            const video = event.target;
-
-            // Obtener el iframe
-            const iframe = document.getElementById("social-stream-iframe");
-
-            // Mostrar el iframe si el video está reproduciéndose, ocultarlo si está pausado o detenido
-            if (video.paused || video.ended) {
-                iframe.style.display = "none";
-            } else {
-                iframe.style.display = "block";
-            }
-        }
-
-        // Event listeners para controlar la visibilidad del iframe
-        const video = document.getElementById("background-video");
-        video.addEventListener("play", toggleIframeVisibility);
-        video.addEventListener("pause", toggleIframeVisibility);
-        video.addEventListener("ended", toggleIframeVisibility);
-    </script>
 </body>
 </html>
