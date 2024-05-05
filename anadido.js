@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     video.muted = true;
 
     var source = document.createElement('source');
-    source.src = 'fondochat.mp4'; // Reemplaza 'tu_video.mp4' con la ruta de tu video
+    source.src = 'https://raw.githubusercontent.com/tvfj/eurolive/main/fondochat.mp4'; // Reemplaza 'tu_video.mp4' con la ruta de tu video
     source.type = 'video/mp4';
 
     video.appendChild(source);
