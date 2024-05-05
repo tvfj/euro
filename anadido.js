@@ -1,5 +1,17 @@
-alert("Javascript loaded");
-var img = document.createElement("img");
-img.src = "https://tvfj.github.io/eurolive/FONDO.png";
-var src = document.getElementById("body");
-src.appendChild(img);
+document.addEventListener('DOMContentLoaded', function() {
+    var videoBackground = document.createElement('div');
+    videoBackground.id = 'video-background';
+
+    var video = document.createElement('video');
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+
+    var source = document.createElement('source');
+    source.src = 'tu_video.mp4'; // Reemplaza 'tu_video.mp4' con la ruta de tu video
+    source.type = 'video/mp4';
+
+    video.appendChild(source);
+    videoBackground.appendChild(video);
+    document.body.appendChild(videoBackground);
+});
