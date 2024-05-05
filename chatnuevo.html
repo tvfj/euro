@@ -3,51 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Página con video de fondo y contenido superpuesto</title>
+<title>Web con Video de Fondo Transparente</title>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden; /* Para que el contenido no desborde la ventana */
-    }
-
-    #video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* Para colocar el video detrás de los demás elementos */
-    }
-
-    #content-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1; /* Para que el contenido esté sobre el video */
-    }
-
-    #web-content {
-        width: 100%;
-        height: 100%;
-        border: none; /* Eliminar el borde del iframe */
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  #video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  #web-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  #web-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    opacity: 0;
+  }
 </style>
 </head>
 <body>
-    <!-- Video de fondo -->
-    <video id="video-background" autoplay loop muted>
-        <source src="https://tvfj.github.io/eurolive/fondochat.webm" type="video/webm">
-        <!-- Si el navegador no puede reproducir el video, se mostrará este mensaje -->
-        Tu navegador no admite la etiqueta de video.
-    </video>
-
-    <!-- Contenido superpuesto -->
-    <div id="content-overlay">
-        <!-- Contenido web -->
-        <iframe id="web-content" src="https://socialstream.ninja/index.html?session=cwp7F9xPLn"></iframe>
-    </div>
+  <video id="video-background" autoplay loop muted>
+    <source src="https://tvfj.github.io/eurolive/fondochat2.webm" type="video/webm">
+    <!-- Añade más formatos de video si es necesario -->
+    Tu navegador no soporta videos WebM.
+  </video>
+  <div id="web-container">
+    <iframe id="web-iframe" src="https://socialstream.ninja/index.html?session=cwp7F9xPLn&aligntop&center&fade&font=Sora&googlefont=Space%20Grotesk%20Light&noavatar&rounded=10&scale=0.5" allow="autoplay"></iframe>
+  </div>
 </body>
 </html>
