@@ -18,19 +18,14 @@
     height: 100%;
     z-index: -1;
   }
-  #web-container {
+  #web-iframe {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-  }
-  #web-iframe {
-    width: 100%;
-    height: 100%;
     border: none;
-    opacity: 0;
+    background-color: transparent;
   }
 </style>
 </head>
@@ -40,8 +35,6 @@
     <!-- Añade más formatos de video si es necesario -->
     Tu navegador no soporta videos WebM.
   </video>
-  <div id="web-container">
-    <iframe id="web-iframe" src="https://socialstream.ninja/index.html?session=cwp7F9xPLn&aligntop&center&fade&font=Sora&googlefont=Space%20Grotesk%20Light&noavatar&rounded=10&scale=0.5" allow="autoplay"></iframe>
-  </div>
+  <iframe id="web-iframe" src="https://socialstream.ninja/index.html?session=cwp7F9xPLn&aligntop&center&fade&font=Sora&googlefont=Space%20Grotesk%20Light&noavatar&rounded=10&scale=0.5" allow="autoplay"></iframe>
 </body>
 </html>
