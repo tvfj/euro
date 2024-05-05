@@ -38,7 +38,11 @@
 </head>
 <body>
     <!-- Video de fondo -->
-    <iframe id="video-background" src="https://tvfj.github.io/eurolive/fondochat.mp4?autoplay=1&loop=1&controls=0" frameborder="0" allowfullscreen></iframe>
+    <video id="video-background" autoplay loop muted>
+        <source src="https://tvfj.github.io/eurolive/fondochat.mp4" type="video/mp4">
+        <!-- Si el navegador no puede reproducir el video, se mostrará este mensaje -->
+        Tu navegador no admite la etiqueta de video.
+    </video>
 
     <!-- Contenido superpuesto -->
     <div id="content-overlay">
